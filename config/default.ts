@@ -1,5 +1,5 @@
 export default {
   port: 8000,
-  accessTokenExpiresIn: 120,
-  origin: process.env.FRONTED_ORIGIN,
+  accessTokenExpiresIn: 15,
+  origin: "http://localhost:3000",
 };
