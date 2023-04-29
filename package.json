@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "build": "rimraf ./build && tsc",
+    "start": "npm run build && node build/src/app.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
     "typeorm": "typeorm-ts-node-commonjs"
   },
   "author": "",
