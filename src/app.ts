@@ -23,12 +23,14 @@ AppDataSource.initialize()
     if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
 
     // 4. Cors
-    app.use(
-      cors({
-        origin: process.env.FRONTED_ORIGIN,
-        credentials: true,
-      })
-    );
+    // app.use(
+    //   cors({
+    //     origin: process.env.FRONTED_ORIGIN,
+    //     credentials: true,
+    //   })
+    // );
+
+    app.use(cors());
 
     // 5. Routes
     app.use("/api/users", userRouter);
