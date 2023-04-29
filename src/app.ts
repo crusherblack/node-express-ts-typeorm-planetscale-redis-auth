@@ -1,7 +1,6 @@
 require("dotenv").config();
 import express, { NextFunction, Request, Response } from "express";
 import morgan from "morgan";
-import config from "config";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import AppDataSource from "./utils/appDataSource";
@@ -26,7 +25,7 @@ AppDataSource.initialize()
     // 4. Cors
     app.use(
       cors({
-        origin: config.get<string>("origin"),
+        origin: process.env.FRONTED_ORIGIN,
         credentials: true,
       })
     );
@@ -64,7 +63,7 @@ AppDataSource.initialize()
       });
     });
 
-    const port = config.get<number>("port");
+    const port = 8000;
     app.listen(port, () => {
       console.log(`Server started on port: ${port}`);
     });

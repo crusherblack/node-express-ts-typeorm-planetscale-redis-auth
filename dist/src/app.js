@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv").config();
 const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
-const config_1 = __importDefault(require("config"));
 const cors_1 = __importDefault(require("cors"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const appDataSource_1 = __importDefault(require("./utils/appDataSource"));
@@ -34,7 +33,7 @@ appDataSource_1.default.initialize()
         app.use((0, morgan_1.default)("dev"));
     // 4. Cors
     app.use((0, cors_1.default)({
-        origin: config_1.default.get("origin"),
+        origin: process.env.FRONTED_ORIGIN,
         credentials: true,
     }));
     // 5. Routes
@@ -62,7 +61,7 @@ appDataSource_1.default.initialize()
             message: err.message,
         });
     });
-    const port = config_1.default.get("port");
+    const port = 8000;
     app.listen(port, () => {
         console.log(`Server started on port: ${port}`);
     });
