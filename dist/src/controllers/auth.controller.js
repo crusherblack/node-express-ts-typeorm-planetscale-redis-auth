@@ -24,7 +24,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.loginHandler = exports.registerHandler = exports.excludedFields = void 0;
-const config_1 = __importDefault(require("config"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const user_service_1 = require("../services/user.service");
 const appError_1 = __importDefault(require("../utils/appError"));
@@ -32,8 +31,8 @@ const appError_1 = __importDefault(require("../utils/appError"));
 exports.excludedFields = ["password"];
 // Cookie options
 const accessTokenCookieOptions = {
-    expires: new Date(Date.now() + config_1.default.get("accessTokenExpiresIn") * 60 * 1000),
-    maxAge: config_1.default.get("accessTokenExpiresIn") * 60 * 1000,
+    expires: new Date(Date.now() + 60 * 60 * 1000),
+    maxAge: 60 * 60 * 1000,
     httpOnly: true,
     sameSite: "lax",
 };

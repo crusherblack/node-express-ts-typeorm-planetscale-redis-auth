@@ -1,4 +1,3 @@
-import config from "config";
 import { FindOptionsWhere } from "typeorm";
 import jwt from "jsonwebtoken";
 
@@ -37,7 +36,7 @@ export const signToken = async (user: Omit<User, "password">) => {
     { sub: user.id },
     process.env.JWT_KEY as string,
     {
-      expiresIn: `${config.get<number>("accessTokenExpiresIn")}m`,
+      expiresIn: `60m`,
     }
   );
 

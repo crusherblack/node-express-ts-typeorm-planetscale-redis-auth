@@ -13,7 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.signToken = exports.findUser = exports.findAllUsers = exports.findUserById = exports.createUser = void 0;
-const config_1 = __importDefault(require("config"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const connectRedis_1 = __importDefault(require("../utils/connectRedis"));
 const User_entity_1 = require("../entities/User.entity");
@@ -43,7 +42,7 @@ exports.findUser = findUser;
 const signToken = (user) => __awaiter(void 0, void 0, void 0, function* () {
     // Sign the access token
     const access_token = jsonwebtoken_1.default.sign({ sub: user.id }, process.env.JWT_KEY, {
-        expiresIn: `${config_1.default.get("accessTokenExpiresIn")}m`,
+        expiresIn: `60m`,
     });
     // Create a Session
     connectRedis_1.default.set(user.id + "", JSON.stringify(user));

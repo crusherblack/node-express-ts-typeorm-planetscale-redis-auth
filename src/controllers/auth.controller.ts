@@ -1,4 +1,3 @@
-import config from "config";
 import { CookieOptions, NextFunction, Request, Response } from "express";
 import bcrypt from "bcrypt";
 
@@ -11,10 +10,8 @@ export const excludedFields = ["password"];
 
 // Cookie options
 const accessTokenCookieOptions: CookieOptions = {
-  expires: new Date(
-    Date.now() + config.get<number>("accessTokenExpiresIn") * 60 * 1000
-  ),
-  maxAge: config.get<number>("accessTokenExpiresIn") * 60 * 1000,
+  expires: new Date(Date.now() + 60 * 60 * 1000),
+  maxAge: 60 * 60 * 1000,
   httpOnly: true,
   sameSite: "lax",
 };
