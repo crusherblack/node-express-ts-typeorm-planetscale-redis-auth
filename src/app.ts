@@ -31,9 +31,12 @@ AppDataSource.initialize()
     //   })
     // );
 
-    app.use(cors()); //rerun
+    app.use(cors());
 
     // 5. Routes
+    app.use("/", (req, res) => {
+      res.json("success");
+    });
     app.use("/api/users", userRouter);
     app.use("/api/auth", authRouter);
     app.use("/api/recruitments", recruitmentRouter);
