@@ -37,9 +37,9 @@ AppDataSource.initialize()
     app.use("/", (req, res) => {
       res.json("success");
     });
-    app.use("/users", userRouter);
-    app.use("/auth", authRouter);
-    app.use("/recruitments", recruitmentRouter);
+    app.use("/api-v1/users", userRouter);
+    app.use("/api-v1/auth", authRouter);
+    app.use("/api-v1/recruitments", recruitmentRouter);
 
     // Testing
     app.get(
