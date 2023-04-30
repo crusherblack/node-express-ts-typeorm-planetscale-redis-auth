@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import AppDataSource from "./utils/appDataSource";
 import userRouter from "./routes/user.route";
 import authRouter from "./routes/auth.route";
+import recruitmentRouter from "./routes/recruitment.route";
 
 AppDataSource.initialize()
   .then(async () => {
@@ -35,6 +36,7 @@ AppDataSource.initialize()
     // 5. Routes
     app.use("/api/users", userRouter);
     app.use("/api/auth", authRouter);
+    app.use("/api/recruitments", recruitmentRouter);
 
     // Testing
     app.get(
