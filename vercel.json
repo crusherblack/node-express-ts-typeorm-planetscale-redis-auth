@@ -15,11 +15,11 @@
   ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/custom/api/(.*)",
       "headers": [{ "key": "Access-Control-Allow-Origin", "value": "*" }]
     },
     {
-      "source": "/node-express-ts-typeorm-planetscale-redis-auth.vercel.app/(.*)",
+      "source": "/node-express-ts-typeorm-planetscale-redis-auth.vercel.app/custom/api/(.*)",
       "headers": [{ "key": "Access-Control-Allow-Origin", "value": "*" }]
     }
   ]
