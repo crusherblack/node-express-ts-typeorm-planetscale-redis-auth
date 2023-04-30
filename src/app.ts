@@ -41,17 +41,6 @@ AppDataSource.initialize()
     app.use("/api-v1/auth", authRouter);
     app.use("/api-v1/recruitments", recruitmentRouter);
 
-    // Testing
-    app.get(
-      "/healthChecker",
-      (req: Request, res: Response, next: NextFunction) => {
-        res.status(200).json({
-          status: "success",
-          message: "Welcome to CodevoWeb????",
-        });
-      }
-    );
-
     // UnKnown Routes
     app.all("*", (req: Request, _: Response, next: NextFunction) => {
       const err = new Error(`Route ${req.originalUrl} not found`) as any;
